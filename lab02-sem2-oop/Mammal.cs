@@ -1,4 +1,4 @@
-﻿namespace Mammal
+﻿namespace lab02_sem2_oop
 {
   public class Mammal : Animal
   {
