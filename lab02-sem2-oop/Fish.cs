@@ -3,7 +3,7 @@
 {
   public class Fish : Animal
   {
-    public string waterType;
+    private string waterType;
 
     public Fish(string animalName, int animalAge, string animalHabitat, string animalDietType, string animalWaterType)
       : base(animalName, animalAge, animalHabitat, animalDietType)

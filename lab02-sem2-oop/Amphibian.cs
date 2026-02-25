@@ -2,7 +2,7 @@
 {
   public class Amphibian : Animal
   {
-    public string skinMoisture;
+    private string skinMoisture;
 
     public Amphibian(string animalName, int animalAge, string animalHabitat, string animalDietType, string animalSkinMoisture) : base(animalName, animalAge, animalHabitat, animalDietType)
     {

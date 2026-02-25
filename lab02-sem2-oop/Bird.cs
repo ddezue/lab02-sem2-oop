@@ -2,7 +2,7 @@
 {
   public class Bird : Animal
   {
-    public double wingSpan;
+    private double wingSpan;
 
     public Bird(string animalName, int animalAge, string animalHabitat, string animalDietType, double animalWingSpan) : base(animalName, animalAge, animalHabitat, animalDietType)
     {

@@ -7,25 +7,16 @@ namespace AnimalZoo
   {
     public static void Main(string[] args)
     {
-      const int menuExitOption = 3;
       AnimalManager zooManager = AnimalManager.instance;
       int userChoice = 0;
 
-      while (userChoice != menuExitOption)
+      while (userChoice != 3)
       {
         DisplayMenu();
         string userInput = Console.ReadLine();
-
-        if (!int.TryParse(userInput, out userChoice))
-        {
-          Console.WriteLine("\nPlease enter a number from 1 to 3.");
-          continue;
-        }
-
+        userChoice = int.Parse(userInput);
         ProcessMenuChoice(zooManager, userChoice);
       }
-
-      Console.WriteLine("\nProgram closed");
     }
 
     public static void DisplayMenu()
@@ -34,7 +25,7 @@ namespace AnimalZoo
       Console.WriteLine("1. Add new animal");
       Console.WriteLine("2. Show all animals");
       Console.WriteLine("3. Exit");
-      Console.Write("Choose action: ");
+      Console.Write("Your choice: ");
     }
 
     public static void ProcessMenuChoice(AnimalManager zooManager, int userChoice)
@@ -50,6 +41,7 @@ namespace AnimalZoo
           break;
 
         case 3:
+          Console.WriteLine("\nBye");
           break;
 
         default:
@@ -62,46 +54,23 @@ namespace AnimalZoo
     {
       Console.WriteLine("\nADDING NEW ANIMAL");
 
-      int animalType = 0;
-      bool validType = false;
+      Console.WriteLine("Select animal type:");
+      Console.WriteLine("1. Mammal");
+      Console.WriteLine("2. Bird");
+      Console.WriteLine("3. Fish");
+      Console.WriteLine("4. Reptile");
+      Console.WriteLine("5. Amphibian");
+      Console.Write("Your choice: ");
 
-      while (!validType)
-      {
-        Console.WriteLine("Select animal type:");
-        Console.WriteLine("1. Mammal");
-        Console.WriteLine("2. Bird");
-        Console.WriteLine("3. Fish");
-        Console.WriteLine("4. Reptile");
-        Console.WriteLine("5. Amphibian");
-        Console.Write("Your choice: ");
-
-        string typeInput = Console.ReadLine();
-
-        if (int.TryParse(typeInput, out animalType) && animalType >= 1 && animalType <= 5)
-        {
-          validType = true;
-        }
-        else
-        {
-          Console.WriteLine("Please enter 1-5.\n");
-        }
-      }
+      string typeInput = Console.ReadLine();
+      int animalType = int.Parse(typeInput);
 
       Console.Write("Enter name: ");
       string animalName = Console.ReadLine();
 
-      int animalAge = -1;
-      while (animalAge < 0)
-      {
-        Console.Write("Enter age: ");
-        string ageInput = Console.ReadLine();
-
-        if (!int.TryParse(ageInput, out animalAge) || animalAge < 0)
-        {
-          Console.WriteLine("Invalid age.");
-          animalAge = -1;
-        }
-      }
+      Console.Write("Enter age: ");
+      string ageInput = Console.ReadLine();
+      int animalAge = int.Parse(ageInput);
 
       Console.Write("Enter habitat: ");
       string animalHabitat = Console.ReadLine();
@@ -144,76 +113,27 @@ namespace AnimalZoo
       }
     }
 
-    public static void CreateMammal(
-      AnimalManager zooManager,
-      string animalName,
-      int animalAge,
-      string animalHabitat,
-      string animalDiet)
+    public static void CreateMammal(AnimalManager zooManager, string animalName, int animalAge, string animalHabitat, string animalDiet)
     {
-      bool hasFur = false;
-      bool validInput = false;
-
-      while (!validInput)
-      {
-        Console.Write("Has fur? (yes/no): ");
-        string furInput = Console.ReadLine().ToLower();
-
-        if (furInput == "yes" || furInput == "y")
-        {
-          hasFur = true;
-          validInput = true;
-        }
-        else if (furInput == "no" || furInput == "n")
-        {
-          hasFur = false;
-          validInput = true;
-        }
-        else
-        {
-          Console.WriteLine("Еnter yes or no.");
-        }
-      }
+      Console.Write("Has fur? (yes/no): ");
+      string furInput = Console.ReadLine().ToLower();
+      bool hasFur = (furInput == "yes" || furInput == "y");
 
       Mammal newMammal = new Mammal(animalName, animalAge, animalHabitat, animalDiet, hasFur);
       zooManager.AddAnimal(newMammal);
     }
 
-    public static void CreateBird(
-      AnimalManager zooManager,
-      string animalName,
-      int animalAge,
-      string animalHabitat,
-      string animalDiet)
+    public static void CreateBird(AnimalManager zooManager, string animalName, int animalAge, string animalHabitat, string animalDiet)
     {
-      double wingSpan = 0;
-      bool validInput = false;
-
-      while (!validInput)
-      {
-        Console.Write("Enter wingspan: ");
-        string wingInput = Console.ReadLine();
-
-        if (double.TryParse(wingInput, out wingSpan) && wingSpan >= 0)
-        {
-          validInput = true;
-        }
-        else
-        {
-          Console.WriteLine("Invalid wingspan value.");
-        }
-      }
+      Console.Write("Enter wingspan (m): ");
+      string wingInput = Console.ReadLine();
+      double wingSpan = double.Parse(wingInput);
 
       Bird newBird = new Bird(animalName, animalAge, animalHabitat, animalDiet, wingSpan);
       zooManager.AddAnimal(newBird);
     }
 
-    public static void CreateFish(
-      AnimalManager zooManager,
-      string animalName,
-      int animalAge,
-      string animalHabitat,
-      string animalDiet)
+    public static void CreateFish(AnimalManager zooManager, string animalName, int animalAge, string animalHabitat, string animalDiet)
     {
       Console.Write("Enter water type (fresh/salt): ");
       string waterType = Console.ReadLine();
@@ -222,47 +142,17 @@ namespace AnimalZoo
       zooManager.AddAnimal(newFish);
     }
 
-    public static void CreateReptile(
-      AnimalManager zooManager,
-      string animalName,
-      int animalAge,
-      string animalHabitat,
-      string animalDiet)
+    public static void CreateReptile(AnimalManager zooManager, string animalName, int animalAge, string animalHabitat, string animalDiet)
     {
-      bool isVenomous = false;
-      bool validInput = false;
-
-      while (!validInput)
-      {
-        Console.Write("Is venomous? (yes/no): ");
-        string venomousInput = Console.ReadLine().ToLower();
-
-        if (venomousInput == "yes" || venomousInput == "y")
-        {
-          isVenomous = true;
-          validInput = true;
-        }
-        else if (venomousInput == "no" || venomousInput == "n")
-        {
-          isVenomous = false;
-          validInput = true;
-        }
-        else
-        {
-          Console.WriteLine("Please enter yes or no.");
-        }
-      }
+      Console.Write("Is venomous? (yes/no): ");
+      string venomInput = Console.ReadLine().ToLower();
+      bool isVenomous = (venomInput == "yes");
 
       Reptile newReptile = new Reptile(animalName, animalAge, animalHabitat, animalDiet, isVenomous);
       zooManager.AddAnimal(newReptile);
     }
 
-    public static void CreateAmphibian(
-      AnimalManager zooManager,
-      string animalName,
-      int animalAge,
-      string animalHabitat,
-      string animalDiet)
+    public static void CreateAmphibian(AnimalManager zooManager, string animalName, int animalAge, string animalHabitat, string animalDiet)
     {
       Console.Write("Enter skin moisture (low/medium/high): ");
       string skinMoisture = Console.ReadLine();

@@ -3,9 +3,9 @@
   public class Animal
     {
     public string name;
-    public int age;
-    public string habitat;
-    public string dietType;
+    private int age;
+    private string habitat;
+    private string dietType;
 
     public Animal(string animalName, int animalAge, string animalHabitat, string animalDietType)
     {

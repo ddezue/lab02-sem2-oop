@@ -2,7 +2,7 @@
 {
   public class Mammal : Animal
   {
-    public bool hasFur;
+    private bool hasFur;
 
     public Mammal(string animalName, int animalAge, string animalHabitat, string animalDietType, bool animalHasFur) : base(animalName, animalAge, animalHabitat, animalDietType)
     {
@@ -11,7 +11,8 @@
 
     public override string GetInfo()
     {
-      string furStat = hasFur ? "yes" : "no";
+      string furStat;
+      furStat = hasFur ? "yes" : "no";
       return base.GetInfo() + $", Type: Mammal, Fur: {furStat}";
     }
   }

@@ -1,11 +1,11 @@
-﻿using lab02_sem2_oop;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace lab02_sem2_oop
 {
   public sealed class AnimalManager
   {
+
     public static AnimalManager instance = new AnimalManager();
     public List<Animal> animalList = new List<Animal>();
 
