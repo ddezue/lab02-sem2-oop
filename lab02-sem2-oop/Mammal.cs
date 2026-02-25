@@ -4,8 +4,7 @@
   {
     public bool hasFur;
 
-    public Mammal(string animalName, int animalAge, string animalHabitat, string animalDietType, bool animalHasFur)
-      : base(animalName, animalAge, animalHabitat, animalDietType)
+    public Mammal(string animalName, int animalAge, string animalHabitat, string animalDietType, bool animalHasFur) : base(animalName, animalAge, animalHabitat, animalDietType)
     {
       hasFur = animalHasFur;
     }
