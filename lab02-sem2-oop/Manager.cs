@@ -7,7 +7,7 @@ namespace lab02_sem2_oop
   {
 
     public static AnimalManager instance = new AnimalManager();
-    public List<Animal> animalList = new List<Animal>();
+    private List<Animal> animalList = new List<Animal>();
 
     public AnimalManager() { }
 
@@ -28,10 +28,13 @@ namespace lab02_sem2_oop
         return;
       }
 
+      int countingFromOne;
+      countingFromOne = 1;
+
       Console.WriteLine("\nALL ANIMALS LIST");
       for (int animalIndex = 0; animalIndex < animalList.Count; ++animalIndex)
       {
-        Console.WriteLine($"{animalIndex + 1}. {animalList[animalIndex].GetInfo()}");
+        Console.WriteLine($"{animalIndex + countingFromOne}. {animalList[animalIndex].GetInfo()}");
       }
     }
 
@@ -49,7 +52,8 @@ namespace lab02_sem2_oop
 
     public void ShowAnimalByName(string animalName)
     {
-      bool animalFound = false;
+      bool animalFound;
+      animalFound = false;
 
       for (int animalIndex = 0; animalIndex < animalList.Count; ++animalIndex)
       {

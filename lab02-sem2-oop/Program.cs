@@ -7,13 +7,16 @@ namespace AnimalZoo
   {
     public static void Main(string[] args)
     {
+      int userChoice;
+      string userInput;
+
       AnimalManager zooManager = AnimalManager.instance;
-      int userChoice = 0;
+      userChoice = 0;
 
       while (userChoice != 3)
       {
         DisplayMenu();
-        string userInput = Console.ReadLine();
+        userInput = Console.ReadLine();
         userChoice = int.Parse(userInput);
         ProcessMenuChoice(zooManager, userChoice);
       }
@@ -52,8 +55,11 @@ namespace AnimalZoo
 
     public static void AddNewAnimal(AnimalManager zooManager)
     {
-      Console.WriteLine("\nADDING NEW ANIMAL");
+      string typeInput, animalName, ageInput, animalHabitat, animalDiet;
+      int animalType, animalAge;
 
+
+      Console.WriteLine("\nADDING NEW ANIMAL");
       Console.WriteLine("Select animal type:");
       Console.WriteLine("1. Mammal");
       Console.WriteLine("2. Bird");
@@ -62,21 +68,21 @@ namespace AnimalZoo
       Console.WriteLine("5. Amphibian");
       Console.Write("Your choice: ");
 
-      string typeInput = Console.ReadLine();
-      int animalType = int.Parse(typeInput);
+      typeInput = Console.ReadLine();
+      animalType = int.Parse(typeInput);
 
       Console.Write("Enter name: ");
-      string animalName = Console.ReadLine();
+      animalName = Console.ReadLine();
 
       Console.Write("Enter age: ");
-      string ageInput = Console.ReadLine();
-      int animalAge = int.Parse(ageInput);
+      ageInput = Console.ReadLine();
+      animalAge = int.Parse(ageInput);
 
       Console.Write("Enter habitat: ");
-      string animalHabitat = Console.ReadLine();
+      animalHabitat = Console.ReadLine();
 
       Console.Write("Enter diet type (carnivore/herbivore/omnivore): ");
-      string animalDiet = Console.ReadLine();
+      animalDiet = Console.ReadLine();
 
       CreateAnimalByType(zooManager, animalType, animalName, animalAge, animalHabitat, animalDiet);
     }
@@ -115,9 +121,12 @@ namespace AnimalZoo
 
     public static void CreateMammal(AnimalManager zooManager, string animalName, int animalAge, string animalHabitat, string animalDiet)
     {
+      string furInput;
+      bool hasFur;
+
       Console.Write("Has fur? (yes/no): ");
-      string furInput = Console.ReadLine().ToLower();
-      bool hasFur = (furInput == "yes" || furInput == "y");
+      furInput = Console.ReadLine().ToLower();
+      hasFur = (furInput == "yes" || furInput == "y");
 
       Mammal newMammal = new Mammal(animalName, animalAge, animalHabitat, animalDiet, hasFur);
       zooManager.AddAnimal(newMammal);
@@ -125,9 +134,12 @@ namespace AnimalZoo
 
     public static void CreateBird(AnimalManager zooManager, string animalName, int animalAge, string animalHabitat, string animalDiet)
     {
+      int wingSpan;
+      string wingInput;
+
       Console.Write("Enter wingspan (m): ");
-      string wingInput = Console.ReadLine();
-      double wingSpan = double.Parse(wingInput);
+      wingInput = Console.ReadLine();
+      wingSpan = int.Parse(wingInput);
 
       Bird newBird = new Bird(animalName, animalAge, animalHabitat, animalDiet, wingSpan);
       zooManager.AddAnimal(newBird);
@@ -135,8 +147,10 @@ namespace AnimalZoo
 
     public static void CreateFish(AnimalManager zooManager, string animalName, int animalAge, string animalHabitat, string animalDiet)
     {
+      string waterType;
+
       Console.Write("Enter water type (fresh/salt): ");
-      string waterType = Console.ReadLine();
+      waterType = Console.ReadLine();
 
       Fish newFish = new Fish(animalName, animalAge, animalHabitat, animalDiet, waterType);
       zooManager.AddAnimal(newFish);
@@ -144,9 +158,12 @@ namespace AnimalZoo
 
     public static void CreateReptile(AnimalManager zooManager, string animalName, int animalAge, string animalHabitat, string animalDiet)
     {
+      string venomInput;
+      bool isVenomous;
+
       Console.Write("Is venomous? (yes/no): ");
-      string venomInput = Console.ReadLine().ToLower();
-      bool isVenomous = (venomInput == "yes");
+      venomInput = Console.ReadLine().ToLower();
+      isVenomous = (venomInput == "yes");
 
       Reptile newReptile = new Reptile(animalName, animalAge, animalHabitat, animalDiet, isVenomous);
       zooManager.AddAnimal(newReptile);
@@ -154,8 +171,10 @@ namespace AnimalZoo
 
     public static void CreateAmphibian(AnimalManager zooManager, string animalName, int animalAge, string animalHabitat, string animalDiet)
     {
+      string skinMoisture;
+
       Console.Write("Enter skin moisture (low/medium/high): ");
-      string skinMoisture = Console.ReadLine();
+      skinMoisture = Console.ReadLine();
 
       Amphibian newAmphibian = new Amphibian(animalName, animalAge, animalHabitat, animalDiet, skinMoisture);
       zooManager.AddAnimal(newAmphibian);
