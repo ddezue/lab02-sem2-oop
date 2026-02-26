@@ -2,22 +2,22 @@
 {
   public class Animal
     {
-    public string name;
-    private int age;
-    private string habitat;
-    private string dietType;
+    public string _name;
+    private int _age;
+    private string _habitat;
+    private string _dietType;
 
     public Animal(string animalName, int animalAge, string animalHabitat, string animalDietType)
     {
-      name = animalName;
-      age = animalAge;
-      habitat = animalHabitat;
-      dietType = animalDietType;
+      _name = animalName;
+      _age = animalAge;
+      _habitat = animalHabitat;
+      _dietType = animalDietType;
     }
 
         public virtual string GetInfo()
         {
-            return $"Name: {name}, Age: {age}, Habitat: {habitat}, Diet: {dietType}";
+            return $"Name: {_name}, Age: {_age}, Habitat: {_habitat}, Diet: {_dietType}";
         }
     }
 }

@@ -2,16 +2,16 @@
 {
   public class Bird : Animal
   {
-    private double wingSpan;
+    private int _wingSpan;
 
-    public Bird(string animalName, int animalAge, string animalHabitat, string animalDietType, double animalWingSpan) : base(animalName, animalAge, animalHabitat, animalDietType)
+    public Bird(string animalName, int animalAge, string animalHabitat, string animalDietType, int animalWingSpan) : base(animalName, animalAge, animalHabitat, animalDietType)
     {
-      wingSpan = animalWingSpan;
+      _wingSpan = animalWingSpan;
     }
 
     public override string GetInfo()
     {
-      return base.GetInfo() + $", Type: Bird, Wingspan: {wingSpan} m";
+      return base.GetInfo() + $", Type: Bird, Wingspan: {_wingSpan} m";
     }
   }
 }

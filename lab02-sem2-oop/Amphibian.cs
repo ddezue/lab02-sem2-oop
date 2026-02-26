@@ -2,16 +2,16 @@
 {
   public class Amphibian : Animal
   {
-    private string skinMoisture;
+    private string _skinMoisture;
 
     public Amphibian(string animalName, int animalAge, string animalHabitat, string animalDietType, string animalSkinMoisture) : base(animalName, animalAge, animalHabitat, animalDietType)
     {
-      skinMoisture = animalSkinMoisture;
+      _skinMoisture = animalSkinMoisture;
     }
 
     public override string GetInfo()
     {
-      return base.GetInfo() + $", Type: Amphibian, Skin moisture: {skinMoisture}";
+      return base.GetInfo() + $", Type: Amphibian, Skin moisture: {_skinMoisture}";
     }
   }
 }

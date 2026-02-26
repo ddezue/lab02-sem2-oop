@@ -16,7 +16,7 @@ namespace lab02_sem2_oop
       if (newAnimal != null)
       {
         animalList.Add(newAnimal);
-        Console.WriteLine($"\nAnimal {newAnimal.name} added");
+        Console.WriteLine($"\nAnimal {newAnimal._name} added");
       }
     }
 
@@ -57,7 +57,7 @@ namespace lab02_sem2_oop
 
       for (int animalIndex = 0; animalIndex < animalList.Count; ++animalIndex)
       {
-        if (animalList[animalIndex].name.Equals(animalName, StringComparison.OrdinalIgnoreCase))
+        if (animalList[animalIndex]._name.Equals(animalName, StringComparison.OrdinalIgnoreCase))
         {
           Console.WriteLine($"\n{animalList[animalIndex].GetInfo()}");
           animalFound = true;

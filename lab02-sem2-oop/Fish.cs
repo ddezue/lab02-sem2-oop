@@ -3,17 +3,17 @@
 {
   public class Fish : Animal
   {
-    private string waterType;
+    private string _waterType;
 
     public Fish(string animalName, int animalAge, string animalHabitat, string animalDietType, string animalWaterType)
       : base(animalName, animalAge, animalHabitat, animalDietType)
     {
-      waterType = animalWaterType;
+      _waterType = animalWaterType;
     }
 
     public override string GetInfo()
     {
-      return base.GetInfo() + $", Type: Fish, Water type: {waterType}";
+      return base.GetInfo() + $", Type: Fish, Water type: {_waterType}";
     }
   }
 }

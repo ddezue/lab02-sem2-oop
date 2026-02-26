@@ -2,16 +2,17 @@
 {
   public class Reptile : Animal
   {
-    public bool isVenomous;
+    private bool _isVenomous;
 
     public Reptile(string animalName, int animalAge, string animalHabitat, string animalDietType, bool animalIsVenomous) : base(animalName, animalAge, animalHabitat, animalDietType)
     {
-      isVenomous = animalIsVenomous;
+      _isVenomous = animalIsVenomous;
     }
 
     public override string GetInfo()
     {
-      string venomousStat = isVenomous ? "yes" : "no";
+      string venomousStat;
+      venomousStat = _isVenomous ? "yes" : "no";
       return base.GetInfo() + $", Type: Reptile, Venomous: {venomousStat}";
     }
   }
