@@ -10,7 +10,7 @@ namespace AnimalZoo
       int userChoice;
       string userInput;
 
-      AnimalManager zooManager = AnimalManager.instance;
+      AnimalManager zooManager = AnimalManager.Instance;
       userChoice = 0;
 
       while (userChoice != 3)

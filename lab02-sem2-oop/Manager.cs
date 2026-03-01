@@ -5,11 +5,19 @@ namespace lab02_sem2_oop
 {
   public sealed class AnimalManager
   {
+    public static AnimalManager Instance
+    {
+      get
+      {
+        if (instance == null) instance = new AnimalManager();
+        return instance;
+      }
+    }
 
-    public static AnimalManager instance = new AnimalManager();
+    private AnimalManager() { }
+
+    private static AnimalManager instance;
     private List<Animal> animalList = new List<Animal>();
-
-    public AnimalManager() { }
 
     public void AddAnimal(Animal newAnimal)
     {
